@@ -169,8 +169,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 4
-      minScalar: 2
+      scalar: 5
+      minScalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -980,7 +980,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 40
+        scalar: 60
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -4835,7 +4835,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 15e6be3e60efc1a4db54376d483ac2d6, type: 2}
+  - {fileID: 2100000, guid: 1d6143bfc36d5f845a404c67438bf3f2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9663,7 +9663,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 15e6be3e60efc1a4db54376d483ac2d6, type: 2}
+  - {fileID: 2100000, guid: 1d6143bfc36d5f845a404c67438bf3f2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9727,7 +9727,7 @@ GameObject:
   - component: {fileID: 859865092056022005}
   - component: {fileID: 5681902351030161253}
   m_Layer: 0
-  m_Name: MagicArrow
+  m_Name: Bounce Spell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9762,12 +9762,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 906a1afdbfe6dd44e92a7399bd3181d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifetime: 5
-  _manaUse: 5
-  _damage: 1
-  _startSpeed: 35
-  _collisionLimitOn: 1
+  _lifetime: 3
+  _manaUse: 20
+  _damage: 30
+  _startSpeed: 15
+  _collisionLimitOn: 0
   _collisionLimit: 1
+  _turnOffEffect: 1
   _rb: {fileID: 5681902351030161253}
   _collider: {fileID: 859865092056022005}
   _mainParticle: {fileID: 3140543875519645419}
@@ -9779,7 +9780,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9100163737737005714}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: bc09e416fd6d115479d1f67b98b52cd8, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -9791,7 +9792,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.1
+  m_Radius: 0.25
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5681902351030161253
 Rigidbody:
@@ -9815,7 +9816,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0

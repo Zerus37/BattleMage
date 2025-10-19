@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 25
+  _type: 4
 --- !u!65 &6677329
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -542,6 +543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 25
+  _type: 4
 --- !u!65 &285923493
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -808,7 +810,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &410087040
 Light:
   m_ObjectHideFlags: 0
@@ -1074,6 +1076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 25
+  _type: 4
 --- !u!65 &481457069
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1818,6 +1821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 25
+  _type: 4
 --- !u!65 &709214970
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2557,6 +2561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 25
+  _type: 4
 --- !u!65 &1097786854
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2794,6 +2799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 25
+  _type: 4
 --- !u!65 &1208653886
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3516,6 +3522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 25
+  _type: 4
 --- !u!65 &1664611904
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3975,6 +3982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 25
+  _type: 4
 --- !u!65 &1990155283
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4227,6 +4235,7 @@ GameObject:
   - component: {fileID: 136877097901447233}
   - component: {fileID: 136877097901447234}
   - component: {fileID: 136877097901447235}
+  - component: {fileID: 136877097901447236}
   m_Layer: 0
   m_Name: First Person Controller
   m_TagString: Untagged
@@ -4597,11 +4606,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562a05c21d2a2e940b26937c596f97e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectile: {fileID: 4497198633178632569, guid: b147bf313dd4c5b46af5a31c13af6b96,
-    type: 3}
+  _projectiles:
+  - {fileID: 4497198633178632569, guid: b147bf313dd4c5b46af5a31c13af6b96, type: 3}
+  - {fileID: 4497198633178632569, guid: 70e50aeba69d9c64e87be012c2603c48, type: 3}
+  - {fileID: 4497198633178632569, guid: 852a448caa280d346902f8b53084d5e1, type: 3}
   _shootPoint: {fileID: 1085247320}
   _cooldown: 0.25
-  _pushForce: 25
   _mana: {fileID: 136877097901447233}
 --- !u!114 &136877097901447233
 MonoBehaviour:
@@ -4735,6 +4745,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rbs:
   - {fileID: 54063889358509835}
+--- !u!114 &136877097901447236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773621827180077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7e1f2ecd66932419fb1c3b44fd1e5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hp: {fileID: 136877097901447234}
+  _damageScale: 1
+  _typeScale: []
 --- !u!4 &181155214996090304
 Transform:
   m_ObjectHideFlags: 0
