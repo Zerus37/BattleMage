@@ -6,3 +6,11 @@ public enum DamageType
 	lightning,
 	physycal
 }
+
+public enum SpellType
+{
+	projectile,
+	raycast,
+	selfCast,
+	gravygun
+}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7107501020370696262}
   - component: {fileID: 1408646198189975100}
   - component: {fileID: 8381852368571182421}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Hit Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4897,7 +4897,7 @@ GameObject:
   - component: {fileID: 4716883819691165305}
   - component: {fileID: 3140543875519645419}
   - component: {fileID: 1810182637122706384}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Main Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9726,7 +9726,7 @@ GameObject:
   - component: {fileID: 4497198633178632569}
   - component: {fileID: 859865092056022005}
   - component: {fileID: 5681902351030161253}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Bounce Spell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9762,6 +9762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 906a1afdbfe6dd44e92a7399bd3181d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 0
   _lifetime: 3
   _manaUse: 20
   _damage: 30
@@ -9802,7 +9803,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9100163737737005714}
   serializedVersion: 4
-  m_Mass: 25
+  m_Mass: 0.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
