@@ -8,9 +8,9 @@ public class Player : MonoBehaviour
 	[SerializeField] private Mana _mana;
 
 	private Spell currentSpell;
-
-
 	private int _currentSpellIndex = 0;
+
+	public Mana Mana => _mana;
 
 	private void Update()
 	{
@@ -40,10 +40,7 @@ public class Player : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(0) && currentSpell.type == SpellType.selfCast)
 		{
-			if (!_mana.TakeMana(currentSpell.selfCastComponent.ManaNeed))
-				return;
-
-			currentSpell.selfCastComponent.Activate();
+			currentSpell.selfCastComponent.Activate(this);
 		}
 	}
 

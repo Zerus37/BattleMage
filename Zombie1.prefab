@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5008069978122895394}
   m_Layer: 0
   m_Name: Base HumanRArmDigit33
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 7981309066989305496}
   m_Layer: 0
   m_Name: Base HumanLArmDigit52
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 4429006955537037268}
   m_Layer: 0
   m_Name: Base HumanLEye
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 3322221431811145235}
   m_Layer: 0
   m_Name: Base HumanLArmDigit33
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 8272429263164622216}
   m_Layer: 0
   m_Name: Base HumanRArmDigit52
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 900751980070036144}
   m_Layer: 0
   m_Name: Base HumanLArmDigit31
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,9 +202,10 @@ GameObject:
   - component: {fileID: 4048748036357954723}
   - component: {fileID: 5911838838246903696}
   - component: {fileID: 6804280721536761405}
+  - component: {fileID: 1333255518161762384}
   m_Layer: 0
   m_Name: Base HumanLLegThigh
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -287,7 +288,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -0.016426623, y: 0.04478755, z: 0.08392096}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -335,11 +336,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: {fileID: 8301434897388388906}
   _damageScale: 1
+  _minDamageSpeed: 10
   _typeScale:
   - type: 1
     scale: 0
   - type: 2
     scale: 1.5
+  _minDamageSpeedSqrt: 100
+--- !u!114 &1333255518161762384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049407419868837603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaab2b8aab7a0444d830c26d3f597c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ragdoll: {fileID: 5117166332630412539}
 --- !u!1 &1157389685195278626
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,9 +369,10 @@ GameObject:
   - component: {fileID: 6932804168560928437}
   - component: {fileID: 8474095634997175748}
   - component: {fileID: 2748208091515703434}
+  - component: {fileID: 6797190925290659399}
   m_Layer: 0
   m_Name: Base HumanRThigh
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -438,7 +455,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -0.016426861, y: 0.044787526, z: -0.083920956}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -486,11 +503,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: {fileID: 8301434897388388906}
   _damageScale: 1
+  _minDamageSpeed: 10
   _typeScale:
   - type: 1
     scale: 0
   - type: 2
     scale: 1.5
+  _minDamageSpeedSqrt: 100
+--- !u!114 &6797190925290659399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157389685195278626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaab2b8aab7a0444d830c26d3f597c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ragdoll: {fileID: 5117166332630412539}
 --- !u!1 &1452113578959956789
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,7 +535,7 @@ GameObject:
   - component: {fileID: 3105809332629827380}
   m_Layer: 0
   m_Name: Z_R_Upperarm
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -592,7 +624,7 @@ GameObject:
   - component: {fileID: 3092102490979103812}
   m_Layer: 0
   m_Name: Z_BodyTop
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -685,7 +717,7 @@ GameObject:
   - component: {fileID: 9003569901982157915}
   m_Layer: 0
   m_Name: Base HumanLArmDigit51
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -717,7 +749,7 @@ GameObject:
   - component: {fileID: 1015610629570165280}
   m_Layer: 0
   m_Name: Base HumanLArmDigit43
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -748,7 +780,7 @@ GameObject:
   - component: {fileID: 8039541694375461625}
   m_Layer: 0
   m_Name: Base HumanHeadREye
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -779,7 +811,7 @@ GameObject:
   - component: {fileID: 2600506832937814661}
   m_Layer: 0
   m_Name: Base HumanRArmDigit43
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -810,7 +842,7 @@ GameObject:
   - component: {fileID: 8530316598801530919}
   m_Layer: 0
   m_Name: Base HumanLArmDigit21
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -842,7 +874,7 @@ GameObject:
   - component: {fileID: 2284350618587854551}
   m_Layer: 0
   m_Name: Base HumanLArmCollarbone
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -875,7 +907,7 @@ GameObject:
   - component: {fileID: 2240320054240135690}
   m_Layer: 0
   m_Name: Z_R_LegCalf
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -964,7 +996,7 @@ GameObject:
   - component: {fileID: 8510712257143124116}
   m_Layer: 0
   m_Name: Z_L_Forearm
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1051,7 +1083,7 @@ GameObject:
   - component: {fileID: 6525299006772377872}
   m_Layer: 0
   m_Name: Base HumanRibcage
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1086,7 +1118,7 @@ GameObject:
   - component: {fileID: 8124657745663751863}
   m_Layer: 0
   m_Name: Base HumanRArmCollarbone
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1118,7 +1150,7 @@ GameObject:
   - component: {fileID: 4387811466596411507}
   m_Layer: 0
   m_Name: Base HumanLArmPalm
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1154,7 +1186,7 @@ GameObject:
   - component: {fileID: 1740563704114431216}
   m_Layer: 0
   m_Name: Base HumanLArmDigit11
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1186,7 +1218,7 @@ GameObject:
   - component: {fileID: 194813306767329689}
   m_Layer: 0
   m_Name: Base HumanHeadLEyelid
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1217,7 +1249,7 @@ GameObject:
   - component: {fileID: 7815498184488154466}
   m_Layer: 0
   m_Name: Base HumanLArmDigit23
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1253,7 +1285,7 @@ GameObject:
   - component: {fileID: 5117166332630412539}
   m_Layer: 0
   m_Name: Zombie1
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1412,8 +1444,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+      - m_Target: {fileID: 8301434897388388906}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
@@ -1451,6 +1483,7 @@ MonoBehaviour:
   - {fileID: 6794211320906404992}
   - {fileID: 8065168489593518860}
   - {fileID: 3469307356801069082}
+  _rootPart: {fileID: 1009938139081887693}
 --- !u!1 &3316442287527054537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,9 +1497,10 @@ GameObject:
   - component: {fileID: 6794211320906404992}
   - component: {fileID: 4254452099452946078}
   - component: {fileID: 8765257284687390731}
+  - component: {fileID: 2702392759971089306}
   m_Layer: 0
   m_Name: Base HumanLArmForearm
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1549,7 +1583,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -0.26574147, y: -0.00000028684732, z: -0.000000070780544}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -1597,11 +1631,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: {fileID: 8301434897388388906}
   _damageScale: 1
+  _minDamageSpeed: 10
   _typeScale:
   - type: 1
     scale: 0
   - type: 2
     scale: 1.5
+  _minDamageSpeedSqrt: 100
+--- !u!114 &2702392759971089306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3316442287527054537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaab2b8aab7a0444d830c26d3f597c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ragdoll: {fileID: 5117166332630412539}
 --- !u!1 &3341722546979506309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,7 +1662,7 @@ GameObject:
   - component: {fileID: 8571703475335721021}
   m_Layer: 0
   m_Name: Base HumanNeck
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1645,7 +1694,7 @@ GameObject:
   - component: {fileID: 8674514917414549650}
   m_Layer: 0
   m_Name: Base HumanRArmDigit11
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1677,7 +1726,7 @@ GameObject:
   - component: {fileID: 5213348589284453843}
   m_Layer: 0
   m_Name: Base HumanHeadREyelid
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1708,7 +1757,7 @@ GameObject:
   - component: {fileID: 2009031311918456477}
   m_Layer: 0
   m_Name: Base HumanLArmDigit12
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1739,7 +1788,7 @@ GameObject:
   - component: {fileID: 8281833601002605718}
   m_Layer: 0
   m_Name: Base HumanRDigit11
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1771,7 +1820,7 @@ GameObject:
   - component: {fileID: 4274566146449206495}
   m_Layer: 0
   m_Name: Z_R_ArmPalm
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1872,9 +1921,10 @@ GameObject:
   - component: {fileID: 8030764222381871854}
   - component: {fileID: 1009938139081887693}
   - component: {fileID: 338050423533610844}
+  - component: {fileID: 3194311283882082885}
   m_Layer: 0
   m_Name: Base HumanPelvis
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1959,11 +2009,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: {fileID: 8301434897388388906}
   _damageScale: 1
+  _minDamageSpeed: 10
   _typeScale:
   - type: 1
     scale: 0
   - type: 2
     scale: 1.5
+  _minDamageSpeedSqrt: 100
+--- !u!114 &3194311283882082885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4511782442966145873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaab2b8aab7a0444d830c26d3f597c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ragdoll: {fileID: 5117166332630412539}
 --- !u!1 &4658042724834959014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1977,9 +2042,10 @@ GameObject:
   - component: {fileID: 8065168489593518860}
   - component: {fileID: 5598556498112786434}
   - component: {fileID: 584561112065919756}
+  - component: {fileID: 746451279524060469}
   m_Layer: 0
   m_Name: Base HumanRArmUpperarm
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2062,7 +2128,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -0.3038769, y: -0.0368738, z: -0.17756365}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -2110,11 +2176,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: {fileID: 8301434897388388906}
   _damageScale: 1
+  _minDamageSpeed: 10
   _typeScale:
   - type: 1
     scale: 0
   - type: 2
     scale: 1.5
+  _minDamageSpeedSqrt: 100
+--- !u!114 &746451279524060469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4658042724834959014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaab2b8aab7a0444d830c26d3f597c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ragdoll: {fileID: 5117166332630412539}
 --- !u!1 &4735013264869880239
 GameObject:
   m_ObjectHideFlags: 0
@@ -2126,7 +2207,7 @@ GameObject:
   - component: {fileID: 1459198585586296824}
   m_Layer: 0
   m_Name: Base HumanLArmDigit42
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2158,7 +2239,7 @@ GameObject:
   - component: {fileID: 959257366425516511}
   m_Layer: 0
   m_Name: Base HumanRArmDigit31
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2190,7 +2271,7 @@ GameObject:
   - component: {fileID: 385261898495641254}
   m_Layer: 0
   m_Name: Base HumanSpine1
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2222,7 +2303,7 @@ GameObject:
   - component: {fileID: 8737561861344938935}
   m_Layer: 0
   m_Name: Base HumanRArmDigit51
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2256,9 +2337,10 @@ GameObject:
   - component: {fileID: 2078968991432602950}
   - component: {fileID: 7666622531694069500}
   - component: {fileID: 6213945439013351340}
+  - component: {fileID: 5073587711066937577}
   m_Layer: 0
   m_Name: Base HumanRCalf
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2341,7 +2423,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -0.39293963, y: -0.0000021259766, z: -0.0000003874302}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -2389,11 +2471,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: {fileID: 8301434897388388906}
   _damageScale: 1
+  _minDamageSpeed: 10
   _typeScale:
   - type: 1
     scale: 0
   - type: 2
     scale: 1.5
+  _minDamageSpeedSqrt: 100
+--- !u!114 &5073587711066937577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5075821755865888971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaab2b8aab7a0444d830c26d3f597c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ragdoll: {fileID: 5117166332630412539}
 --- !u!1 &5216318342931658849
 GameObject:
   m_ObjectHideFlags: 0
@@ -2405,7 +2502,7 @@ GameObject:
   - component: {fileID: 4985200404306550573}
   m_Layer: 0
   m_Name: Base HumanLArmDigit32
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2438,7 +2535,7 @@ GameObject:
   - component: {fileID: 5924285746571224728}
   m_Layer: 0
   m_Name: Z_L_LegCalf
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2526,7 +2623,7 @@ GameObject:
   - component: {fileID: 7700954468141045326}
   m_Layer: 0
   m_Name: Base HumanRArmDigit42
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2559,7 +2656,7 @@ GameObject:
   - component: {fileID: 236046617086838637}
   m_Layer: 0
   m_Name: Z_R_Forearm
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2646,7 +2743,7 @@ GameObject:
   - component: {fileID: 7145155219032438896}
   m_Layer: 0
   m_Name: Base HumanRArmDigit23
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2678,7 +2775,7 @@ GameObject:
   - component: {fileID: 4304738521342259622}
   m_Layer: 0
   m_Name: Z_L_ArmPalm
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2778,7 +2875,7 @@ GameObject:
   - component: {fileID: 1981242578451588152}
   m_Layer: 0
   m_Name: Base HumanLLegDigit11
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2809,7 +2906,7 @@ GameObject:
   - component: {fileID: 7740880826583121913}
   m_Layer: 0
   m_Name: Base HumanRArmDigit53
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2842,9 +2939,10 @@ GameObject:
   - component: {fileID: 6932225789651245797}
   - component: {fileID: 2827388221139180955}
   - component: {fileID: 6291385412117705656}
+  - component: {fileID: 4222948345894567027}
   m_Layer: 0
   m_Name: Base HumanSpine2
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2925,7 +3023,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -0.27080214, y: 0.04972437, z: -0.000000040978193}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -2973,11 +3071,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: {fileID: 8301434897388388906}
   _damageScale: 1
+  _minDamageSpeed: 10
   _typeScale:
   - type: 1
     scale: 0
   - type: 2
     scale: 1.5
+  _minDamageSpeedSqrt: 100
+--- !u!114 &4222948345894567027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6250609461877844083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaab2b8aab7a0444d830c26d3f597c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ragdoll: {fileID: 5117166332630412539}
 --- !u!1 &6254709164721425989
 GameObject:
   m_ObjectHideFlags: 0
@@ -2989,7 +3102,7 @@ GameObject:
   - component: {fileID: 746015199618687999}
   m_Layer: 0
   m_Name: Base HumanHeadJaw
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3020,7 +3133,7 @@ GameObject:
   - component: {fileID: 6646313483862648084}
   m_Layer: 0
   m_Name: Base HumanLArmDigit41
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3052,7 +3165,7 @@ GameObject:
   - component: {fileID: 4058808222686460038}
   m_Layer: 0
   m_Name: Base HumanRArmDigit32
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3086,9 +3199,10 @@ GameObject:
   - component: {fileID: 3891703204122437752}
   - component: {fileID: 5637404843788453723}
   - component: {fileID: 314648426156247844}
+  - component: {fileID: 3264218851986031209}
   m_Layer: 0
   m_Name: Base HumanLLegCalf
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3171,7 +3285,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -0.3929393, y: -0.0000014198013, z: 0.0000003799796}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -3219,11 +3333,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: {fileID: 8301434897388388906}
   _damageScale: 1
+  _minDamageSpeed: 10
   _typeScale:
   - type: 1
     scale: 0
   - type: 2
     scale: 1.5
+  _minDamageSpeedSqrt: 100
+--- !u!114 &3264218851986031209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6579730485459759565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaab2b8aab7a0444d830c26d3f597c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ragdoll: {fileID: 5117166332630412539}
 --- !u!1 &6678394668309496689
 GameObject:
   m_ObjectHideFlags: 0
@@ -3235,7 +3364,7 @@ GameObject:
   - component: {fileID: 5095473634345287862}
   m_Layer: 0
   m_Name: Base HumanLArmDigit53
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3266,7 +3395,7 @@ GameObject:
   - component: {fileID: 3754346806018406033}
   m_Layer: 0
   m_Name: Base HumanRArmDigit21
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3298,7 +3427,7 @@ GameObject:
   - component: {fileID: 1244015796750951921}
   m_Layer: 0
   m_Name: Base HumanLArmDigit22
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3330,7 +3459,7 @@ GameObject:
   - component: {fileID: 7914103940180502202}
   m_Layer: 0
   m_Name: Base HumanRFoot
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3363,7 +3492,7 @@ GameObject:
   - component: {fileID: 9166599835421512818}
   m_Layer: 0
   m_Name: Z_L_Upperarm
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3452,7 +3581,7 @@ GameObject:
   - component: {fileID: 8093074096222784481}
   m_Layer: 0
   m_Name: Z_R_LegThigh
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3540,7 +3669,7 @@ GameObject:
   - component: {fileID: 7530254931437970848}
   m_Layer: 0
   m_Name: Base HumanRArmPalm
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3576,7 +3705,7 @@ GameObject:
   - component: {fileID: 4680144737940291515}
   m_Layer: 0
   m_Name: Base HumanRArmDigit41
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3609,7 +3738,7 @@ GameObject:
   - component: {fileID: 7754984303414636561}
   m_Layer: 0
   m_Name: Z_Head
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3703,7 +3832,7 @@ GameObject:
   - component: {fileID: 5312512847755211076}
   m_Layer: 0
   m_Name: Base HumanRArmDigit12
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3736,9 +3865,10 @@ GameObject:
   - component: {fileID: 505601045221789510}
   - component: {fileID: 5921641326531363116}
   - component: {fileID: 6582099970119861161}
+  - component: {fileID: 6674189013686020297}
   m_Layer: 0
   m_Name: Base HumanLArmUpperarm
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3821,7 +3951,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -0.3038765, y: -0.03687384, z: 0.17756344}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -3869,11 +3999,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: {fileID: 8301434897388388906}
   _damageScale: 1
+  _minDamageSpeed: 10
   _typeScale:
   - type: 1
     scale: 0
   - type: 2
     scale: 1.5
+  _minDamageSpeedSqrt: 100
+--- !u!114 &6674189013686020297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7881545172356258668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaab2b8aab7a0444d830c26d3f597c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ragdoll: {fileID: 5117166332630412539}
 --- !u!1 &8098979096362684602
 GameObject:
   m_ObjectHideFlags: 0
@@ -3887,9 +4032,10 @@ GameObject:
   - component: {fileID: 222151848835044866}
   - component: {fileID: 213641467910787299}
   - component: {fileID: 9181398408508613488}
+  - component: {fileID: 3259174834552525415}
   m_Layer: 0
   m_Name: Base HumanHead
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3974,7 +4120,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -0.47087514, y: 0.07065614, z: -0.000000036805275}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -4022,11 +4168,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: {fileID: 8301434897388388906}
   _damageScale: 2
+  _minDamageSpeed: 10
   _typeScale:
   - type: 1
     scale: 0
   - type: 2
     scale: 1.5
+  _minDamageSpeedSqrt: 100
+--- !u!114 &3259174834552525415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8098979096362684602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaab2b8aab7a0444d830c26d3f597c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ragdoll: {fileID: 5117166332630412539}
 --- !u!1 &8245588566883417236
 GameObject:
   m_ObjectHideFlags: 0
@@ -4039,7 +4200,7 @@ GameObject:
   - component: {fileID: 7705212025493362518}
   m_Layer: 0
   m_Name: Z_Body
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4127,7 +4288,7 @@ GameObject:
   - component: {fileID: 1677051679661888537}
   m_Layer: 0
   m_Name: Base HumanRArmDigit22
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4160,7 +4321,7 @@ GameObject:
   - component: {fileID: 7001653849506589545}
   m_Layer: 0
   m_Name: Z_Hip
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4248,7 +4409,7 @@ GameObject:
   - component: {fileID: 591491919273738630}
   m_Layer: 0
   m_Name: Base HumanLLegFoot
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4282,9 +4443,10 @@ GameObject:
   - component: {fileID: 3469307356801069082}
   - component: {fileID: 1331337615537948926}
   - component: {fileID: 8777373335215769342}
+  - component: {fileID: 7243197032339626243}
   m_Layer: 0
   m_Name: Base HumanRArmForearm
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4367,7 +4529,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -0.2657412, y: -0.00000023841864, z: 0.00000004656611}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -4415,11 +4577,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: {fileID: 8301434897388388906}
   _damageScale: 1
+  _minDamageSpeed: 10
   _typeScale:
   - type: 1
     scale: 0
   - type: 2
     scale: 1.5
+  _minDamageSpeedSqrt: 100
+--- !u!114 &7243197032339626243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8862115063129175994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaab2b8aab7a0444d830c26d3f597c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ragdoll: {fileID: 5117166332630412539}
 --- !u!1 &9080090635974587191
 GameObject:
   m_ObjectHideFlags: 0
@@ -4432,7 +4609,7 @@ GameObject:
   - component: {fileID: 7595528848527376175}
   m_Layer: 0
   m_Name: Z_L_LegThigh
-  m_TagString: Untagged
+  m_TagString: Ragdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

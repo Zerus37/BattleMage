@@ -10,6 +10,7 @@ public class GravyGun : MonoBehaviour
     [SerializeField] private Mana _mana;
 
     private Rigidbody _grapBody = null;
+    private Ragdoll _grapRagdoll = null;
 
     void Update()
     {
@@ -18,6 +19,9 @@ public class GravyGun : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
             Push();
+
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+            Drop();
     }
 
 	private void FixedUpdate()
@@ -35,14 +39,23 @@ public class GravyGun : MonoBehaviour
 		{
             if (hit.collider.TryGetComponent<Rigidbody>(out Rigidbody rb))
 			{
-                if (!_mana.TakeMana(10))
+                if (!_mana.TakeMana(15))
                     return;
 
-                _grapBody = rb;
+				if (hit.collider.CompareTag("Ragdoll"))
+				{
+                    _grapRagdoll = hit.collider.GetComponent<RagdollPart>().ragdoll;
+                    _grapBody = _grapRagdoll.Root;
+                    _grapRagdoll.Freze(true);
+                }
+				else
+				{
+                    _grapBody = rb;
 
-                _grapBody.useGravity = false;
-                _grapBody.velocity = Vector3.zero;
-                _grapBody.angularVelocity = Vector3.zero;
+                    _grapBody.useGravity = false;
+                    _grapBody.velocity = Vector3.zero;
+                    _grapBody.angularVelocity = Vector3.zero;
+                }
             }
         }
 	}
@@ -71,14 +84,16 @@ public class GravyGun : MonoBehaviour
         if (_grapBody == null)
             return;
 
-
-        if (!_mana.TakeMana(10))
+        if (_grapRagdoll != null)
         {
-            Drop();
-            return;
+            _grapRagdoll.Push(_gravyPoint.forward * _pushFore * 2);
+            _grapRagdoll.Freze(false);
+            _grapRagdoll = null;
         }
-
-        _grapBody.AddForce(_gravyPoint.forward * _pushFore, ForceMode.VelocityChange);
+		else
+		{
+            _grapBody.AddForce(_gravyPoint.forward * _pushFore, ForceMode.VelocityChange);
+        }
 
         _grapBody.useGravity = true;
         _grapBody = null;
@@ -86,7 +101,16 @@ public class GravyGun : MonoBehaviour
 
     private void Drop()
 	{
+        if (_grapBody == null)
+            return;
+
         _grapBody.useGravity = true;
         _grapBody = null;
+
+        if (_grapRagdoll != null)
+		{
+            _grapRagdoll.Freze(false);
+            _grapRagdoll = null;
+        }
     }
 }

@@ -7,7 +7,7 @@ public class SelfCast : MonoBehaviour
 	[SerializeField] protected float _manaUse;
 	public float ManaNeed => _manaUse;
 
-	public virtual void Activate()
+	public virtual void Activate(Player player)
 	{
 
 	}

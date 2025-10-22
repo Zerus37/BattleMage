@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1349,7 +1349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56068ee3ae95e5e44ae742db0795db20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _manaUse: 0
+  _manaUse: 20
 --- !u!1 &364823157
 GameObject:
   m_ObjectHideFlags: 0
@@ -1478,7 +1478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &410087040
 Light:
   m_ObjectHideFlags: 0
@@ -5536,7 +5536,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 1
 --- !u!81 &81448069626190487
@@ -5575,7 +5575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f977f53412d81140ab13b3fca57cca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpStrength: 3
+  jumpStrength: 7
   groundCheck: {fileID: 114503056490581805}
 --- !u!114 &114503056490581805
 MonoBehaviour:
@@ -5829,6 +5829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rbs:
   - {fileID: 54063889358509835}
+  _rootPart: {fileID: 0}
 --- !u!114 &136877097901447236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5879,6 +5880,10 @@ MonoBehaviour:
   - type: 2
     projectile: {fileID: 0}
     selfCastComponent: {fileID: 359892150}
+  - type: 0
+    projectile: {fileID: 4497198633178632569, guid: d83a857991262d74ca6e360ba09b8e2b,
+      type: 3}
+    selfCastComponent: {fileID: 0}
   _mana: {fileID: 136877097901447233}
 --- !u!4 &181155214996090304
 Transform:
@@ -6546,11 +6551,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Zombie1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3042292383605502408, guid: e7ef689c41d7fff4e87d62b38964bd54,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4401202677858019699, guid: e7ef689c41d7fff4e87d62b38964bd54,
         type: 3}

@@ -14,3 +14,11 @@ public enum SpellType
 	selfCast,
 	gravygun
 }
+
+public enum Directions
+{
+	forward,
+	back,
+	left,
+	right
+}

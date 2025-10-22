@@ -15,15 +15,40 @@ public class Dash : MonoBehaviour
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Q) && _mana.TakeMana(10))
-			StartCoroutine(Go());
+			StartCoroutine(Go(Directions.forward));
+
+		if (Input.GetKeyDown(KeyCode.Z) && _mana.TakeMana(10))
+			StartCoroutine(Go(Directions.left));
+		if (Input.GetKeyDown(KeyCode.X) && _mana.TakeMana(10))
+			StartCoroutine(Go(Directions.back));
+		if (Input.GetKeyDown(KeyCode.C) && _mana.TakeMana(10))
+			StartCoroutine(Go(Directions.right));
 	}
 
-	private IEnumerator Go()
+	private IEnumerator Go(Directions direction)
 	{
 		_movement.enabled = false;
 		_rb.useGravity = false;
 		_hitCollider.ScaleDamageSpeedLimit(8);
-		Vector3 moveVector = Camera.main.transform.forward * _distance;
+		Vector3 moveVector = Vector3.zero;
+
+		switch (direction)
+		{
+			case Directions.forward:
+				moveVector = Camera.main.transform.forward * _distance;
+				break;
+
+			case Directions.left:
+				moveVector = -Camera.main.transform.right * _distance;
+				break;
+			case Directions.back:
+				moveVector = -Camera.main.transform.forward * _distance;
+				break;
+			case Directions.right:
+				moveVector = Camera.main.transform.right * _distance;
+				break;
+		}
+
 
 		for (float t = 0; t < 1; t += Time.deltaTime / _time)
 		{
