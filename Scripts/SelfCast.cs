@@ -9,6 +9,6 @@ public class SelfCast : MonoBehaviour
 
 	public virtual void Activate(Player player)
 	{
-
+		 
 	}
 }

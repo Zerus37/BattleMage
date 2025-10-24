@@ -41,6 +41,19 @@ public class Projectile : MonoBehaviour
 
 
 
+	public void TurnOff()
+	{
+		CancelInvoke();
+		Destroy(_rb);
+		Destroy(_collider);
+		_mainParticle.Stop();
+
+		if (_turnOffEffect)
+			_hitParticle.Play();
+
+		Destroy(gameObject, 4);
+	}
+
 	private void OnValidate()
 	{
 		_rb = GetComponent<Rigidbody>();
@@ -72,18 +85,6 @@ public class Projectile : MonoBehaviour
 	private void Start()
 	{
 		Invoke(nameof(TurnOff), _lifetime);
-	}
-
-	private void TurnOff()
-	{
-		Destroy(_rb);
-		Destroy(_collider);
-		_mainParticle.Stop();
-
-		if (_turnOffEffect)
-			_hitParticle.Play();
-
-		Destroy(gameObject, 4);
 	}
 
 	private void OnDisable()
