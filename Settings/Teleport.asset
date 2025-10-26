@@ -18,10 +18,10 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.25
+    m_Value: 0.125
   intensity:
     m_OverrideState: 1
-    m_Value: 15
+    m_Value: 100
   scatter:
     m_OverrideState: 1
     m_Value: 1
@@ -65,25 +65,25 @@ MonoBehaviour:
     m_Value: 200
   redOutGreenIn:
     m_OverrideState: 1
-    m_Value: 40
+    m_Value: 200
   redOutBlueIn:
     m_OverrideState: 1
-    m_Value: 40
+    m_Value: 200
   greenOutRedIn:
     m_OverrideState: 1
-    m_Value: 40
+    m_Value: 200
   greenOutGreenIn:
     m_OverrideState: 1
     m_Value: 200
   greenOutBlueIn:
     m_OverrideState: 1
-    m_Value: 40
+    m_Value: 200
   blueOutRedIn:
     m_OverrideState: 1
-    m_Value: 40
+    m_Value: 200
   blueOutGreenIn:
     m_OverrideState: 1
-    m_Value: 40
+    m_Value: 200
   blueOutBlueIn:
     m_OverrideState: 1
     m_Value: 200
