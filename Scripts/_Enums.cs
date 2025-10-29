@@ -22,3 +22,13 @@ public enum Directions
 	left,
 	right
 }
+
+public enum MagicScool
+{
+	baseMagic,
+	kinematic,
+	death,
+	mindControl,
+	fire,
+	lightning
+}
