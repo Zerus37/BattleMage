@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 	private bool _pause = false;
 
 	public Mana Mana => _mana;
+	public bool Pause => _pause;
 
 	private void Update()
 	{

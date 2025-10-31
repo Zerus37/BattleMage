@@ -17,13 +17,20 @@ public class SpellIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 		_keyKodeText.text = "";
 	}
 
+	public void SetKeyString(string value)
+	{
+		_keyKodeText.text = value;
+	}
+
 	public void OnPointerEnter(PointerEventData eventData)
 	{
+		SpellsUI.SelectSpell(this);
 		SpellInfoPopup.Show(_so, eventData.position);
 	}
 
 	public void OnPointerExit(PointerEventData eventData)
 	{
+		SpellsUI.SelectSpell(null);
 		SpellInfoPopup.Hide();
 	}
 }
