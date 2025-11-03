@@ -32,3 +32,13 @@ public enum MagicScool
 	fire,
 	lightning
 }
+
+public enum ActionType
+{
+	spell,
+
+	leftSpellUp,
+	leftSpellDown,
+	rightSpellUp,
+	rightSpellDown
+}

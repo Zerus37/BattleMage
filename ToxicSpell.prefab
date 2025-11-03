@@ -9764,7 +9764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _lifetime: 15
-  _manaUse: 4
+  _manaUse: 15
   _damage: 1
   _startSpeed: 5
   _collisionLimitOn: 0

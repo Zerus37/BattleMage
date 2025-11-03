@@ -7,25 +7,28 @@ public class MagicGun : MonoBehaviour
     [SerializeField] private float _cooldown;
     [SerializeField] private Mana _mana;
 
-    private float _currentCooldown = 0;
+    private float _lastShootTime = 0;
 
     public void SetProjectile(Projectile projectile)
 	{
         _projectile = projectile;
     }
 
-    void Update()
-    {
-        _currentCooldown -= Time.deltaTime;
-
-        if (Input.GetMouseButton(0) 
-            && _currentCooldown <= 0 
-            && _mana.TakeMana(_projectile.ManaUse))
+    public void Shoot()
+	{
+        if(Time.time - _lastShootTime > _cooldown &&
+			_mana.TakeMana(_projectile.ManaUse))
 		{
+            _lastShootTime = Time.time;
+
             Instantiate(_projectile.RB, _shootPoint.position, _shootPoint.rotation)
                 .AddForce(_shootPoint.forward * _projectile.StartSpeed, ForceMode.VelocityChange);
-
-            _currentCooldown = _cooldown;
         }
+	}
+
+    public void Shoot(Projectile projectile)
+	{
+        SetProjectile(projectile);
+        Shoot();
     }
 }

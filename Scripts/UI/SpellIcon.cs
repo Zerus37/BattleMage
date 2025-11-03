@@ -3,12 +3,14 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class SpellIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class SpellIcon : ActionIcon, IPointerEnterHandler, IPointerExitHandler
 {
 	[SerializeField] private Image _icon;
 	[SerializeField] private TextMeshProUGUI _manaCostText;
-	[SerializeField] private TextMeshProUGUI _keyKodeText;
 	private SpellSO _so;
+	private int _altVariant = -1;
+	
+
 	public void SetSO(SpellSO so)
 	{
 		_so = so;
@@ -17,20 +19,25 @@ public class SpellIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 		_keyKodeText.text = "";
 	}
 
-	public void SetKeyString(string value)
+	public void SetSO(SpellSO so, int variant)
 	{
-		_keyKodeText.text = value;
+		SetSO(so);
+		_altVariant = variant;
 	}
 
-	public void OnPointerEnter(PointerEventData eventData)
+	public override void OnPointerEnter(PointerEventData eventData)
 	{
-		SpellsUI.SelectSpell(this);
-		SpellInfoPopup.Show(_so, eventData.position);
+		KeyBindingSystem.SelectAction(this);
+
+		if(_altVariant < 0)
+			SpellInfoPopup.Show(_so, eventData.position);
+		else
+			SpellInfoPopup.Show(_so, eventData.position, _altVariant);
 	}
 
-	public void OnPointerExit(PointerEventData eventData)
+	public override void OnPointerExit(PointerEventData eventData)
 	{
-		SpellsUI.SelectSpell(null);
+		KeyBindingSystem.SelectAction(null);
 		SpellInfoPopup.Hide();
 	}
 }

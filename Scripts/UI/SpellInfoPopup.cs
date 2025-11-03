@@ -45,6 +45,17 @@ public class SpellInfoPopup : MonoBehaviour
         instance._on = true;
     }
 
+    public static void Show(SpellSO spell, Vector2 position, int variant)
+    {
+        instance._popupElement.SetActive(true);
+
+        instance._popupElementTransform.anchoredPosition = position + instance._halfSize;
+        instance._spellName.text = $"{spell.spellName} {spell.selfCastComponent.GetAffix(variant)}";
+        instance._spellScool.text = instance._magicScoolTitiles[spell.scool];
+        instance._spellDescription.text = spell.description;
+        instance._on = true;
+    }
+
     public static void Hide()
     {
         instance._popupElement.SetActive(false);

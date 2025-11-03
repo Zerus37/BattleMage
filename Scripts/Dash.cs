@@ -2,27 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dash : MonoBehaviour
+public class Dash : SelfCast
 {
 	[SerializeField] private float _distance;
 	[SerializeField] private float _time;
 
-	[SerializeField] private FirstPersonMovement _movement;
-	[SerializeField] private Mana _mana;
-	[SerializeField] private HitCollider _hitCollider;
-	[SerializeField] private Rigidbody _rb;
+	private FirstPersonMovement _movement;
+	private HitCollider _hitCollider;
+	private Rigidbody _rb;
 
-	private void Update()
+	public override void Activate(Player player, int altVariant = 0)
 	{
-		if (Input.GetKeyDown(KeyCode.Q) && _mana.TakeMana(10))
-			StartCoroutine(Go(Directions.forward));
+		base.Activate(player, altVariant);
 
-		if (Input.GetKeyDown(KeyCode.Z) && _mana.TakeMana(10))
-			StartCoroutine(Go(Directions.left));
-		if (Input.GetKeyDown(KeyCode.X) && _mana.TakeMana(10))
-			StartCoroutine(Go(Directions.back));
-		if (Input.GetKeyDown(KeyCode.C) && _mana.TakeMana(10))
-			StartCoroutine(Go(Directions.right));
+		if (!player.Mana.TakeMana(_manaUse)) return;
+
+		switch (altVariant)
+		{
+			case 0:
+				StartCoroutine(Go(Directions.left));
+				break;
+			case 1:
+				StartCoroutine(Go(Directions.back));
+				break;
+			case 2:
+				StartCoroutine(Go(Directions.right));
+				break;
+
+			default:
+				StartCoroutine(Go(Directions.forward));
+				break;
+		}
+	}
+
+	public override void SetPlayer(Player player)
+	{
+		_movement = player.Movement;
+		_hitCollider = player.HitCollider;
+		_rb = player.Rigidbody;
 	}
 
 	private IEnumerator Go(Directions direction)

@@ -7,8 +7,10 @@ public class ComfortLandindAura : SelfCast
 	private bool _on = false;
 	private Player _player;
 
-	public override void Activate(Player player)
+	public override void Activate(Player player, int altVariant = 0)
 	{
+		base.Activate(player, altVariant);
+
 		_on = !_on;
 		_player = player;
 	}
