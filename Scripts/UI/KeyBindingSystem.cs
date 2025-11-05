@@ -36,6 +36,7 @@ public class KeyBindingSystem : MonoBehaviour
 	[SerializeField] private Player _player;
 	[SerializeField] private Transform _spellBarContainer;
 	[SerializeField] private SpellIcon _spellCellPrefab;
+	[SerializeField] private SpellSlot[] _spellSlots;
 
 	private List<PlayerAction> _allPlayerAction = new List<PlayerAction>();
 	private ActionIcon _selectedAction;
@@ -57,6 +58,16 @@ public class KeyBindingSystem : MonoBehaviour
 	public Dictionary<KeyCode, PlayerAction> KeyPlayerActionDict => _keyPlayerActionDict;
 	public List<PlayerAction> AllPlayerAction => _allPlayerAction;
 
+	public PlayerAction LeftMouseAction()
+	{
+		return _spellSlots[0].Action;
+	}
+
+	public PlayerAction RightMouseAction()
+	{
+		return _spellSlots[1].Action;
+	}
+
 	public void Start()
 	{
 		instance = this;
@@ -68,6 +79,7 @@ public class KeyBindingSystem : MonoBehaviour
 			icon.SetSO(spell);
 
 			_allPlayerAction.Add(new PlayerAction(ActionType.spell, spell, icon));
+			icon.SetPlayerAction(_allPlayerAction[_allPlayerAction.Count - 1]);
 
 			if (spell.type == SpellType.selfCast
 				&& spell.selfCastComponent.AltVariantCounts > 0)
@@ -82,6 +94,8 @@ public class KeyBindingSystem : MonoBehaviour
 			}
 		}
 
+		_spellSlots[0].SetPlayerAction(_allPlayerAction[0]);
+		_spellSlots[1].SetPlayerAction(_allPlayerAction[0]);
 		_player.SetKeysSystem(this);
 	}
 
@@ -100,8 +114,6 @@ public class KeyBindingSystem : MonoBehaviour
 			&& e.keyCode != KeyCode.None
 			&& !_tabooKeys.Contains(e.keyCode))
 		{
-			Debug.Log("Detected key code: " + e.keyCode);
-
 			if (_keyPlayerActionDict.ContainsKey(e.keyCode))
 			{
 				if(_keyPlayerActionDict[e.keyCode].type == ActionType.spell)
@@ -120,10 +132,19 @@ public class KeyBindingSystem : MonoBehaviour
 			}
 
 			_selectedAction.SetKeyString(((char)e.keyCode).ToString());
-
-
-
 			_keyPlayerActionDict.Add(e.keyCode, _selectedAction.mainAction);
+		}
+	}
+
+	public static void TrySetSlot(SpellIcon spell)
+	{
+		foreach (SpellSlot slot in instance._spellSlots)
+		{
+			if (slot.GetComponent<RectTransform>().rect.Contains(Input.mousePosition))
+			{
+				slot.SetPlayerAction(spell.PlayerAction);
+				return;
+			}
 		}
 	}
 }

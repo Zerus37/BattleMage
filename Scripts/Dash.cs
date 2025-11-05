@@ -10,9 +10,13 @@ public class Dash : SelfCast
 	private FirstPersonMovement _movement;
 	private HitCollider _hitCollider;
 	private Rigidbody _rb;
+	private bool _busy = false;
 
 	public override void Activate(Player player, int altVariant = 0)
 	{
+		if (_busy)
+			return;
+
 		base.Activate(player, altVariant);
 
 		if (!player.Mana.TakeMana(_manaUse)) return;
@@ -44,6 +48,7 @@ public class Dash : SelfCast
 
 	private IEnumerator Go(Directions direction)
 	{
+		_busy = true;
 		_movement.enabled = false;
 		_rb.useGravity = false;
 		_hitCollider.ScaleDamageSpeedLimit(8);
@@ -78,6 +83,7 @@ public class Dash : SelfCast
 		_hitCollider.ScaleDamageSpeedLimit(0.125f);
 		_rb.useGravity = true;
 		_movement.enabled = true;
+		_busy = false;
 	}
 
 	private void OnDisable()

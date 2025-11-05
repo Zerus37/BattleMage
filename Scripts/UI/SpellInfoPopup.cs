@@ -1,4 +1,4 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -15,12 +15,12 @@ public class SpellInfoPopup : MonoBehaviour
     private Dictionary<MagicScool, string> _magicScoolTitiles = 
         new Dictionary<MagicScool, string>
         {
-            { MagicScool.baseMagic, "Базовая магия" },
-            { MagicScool.death, "смерть" },
-            { MagicScool.fire, "огонь" },
-            { MagicScool.kinematic, "кинематика" },
-            { MagicScool.lightning, "молния" },
-            { MagicScool.mindControl, "контроль разума" },
+            { MagicScool.baseMagic, "Р‘Р°Р·РѕРІР°СЏ РјР°РіРёСЏ" },
+            { MagicScool.death, "СЃРјРµСЂС‚СЊ" },
+            { MagicScool.fire, "РѕРіРѕРЅСЊ" },
+            { MagicScool.kinematic, "РєРёРЅРµРјР°С‚РёРєР°" },
+            { MagicScool.lightning, "РјРѕР»РЅРёСЏ" },
+            { MagicScool.mindControl, "РєРѕРЅС‚СЂРѕР»СЊ СЂР°Р·СѓРјР°" },
         };
     private Vector2 _halfSize;
     private RectTransform _popupElementTransform;
@@ -34,7 +34,13 @@ public class SpellInfoPopup : MonoBehaviour
         _halfSize = _popupElementTransform.rect.size / 2 + Vector2.one * 3;
     }
 
-    public static void Show(SpellSO spell, Vector2 position)
+	private void OnEnable()
+    {
+        if(_on)
+            Hide();
+    }
+
+	public static void Show(SpellSO spell, Vector2 position)
 	{
         instance._popupElement.SetActive(true);
 

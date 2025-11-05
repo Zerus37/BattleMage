@@ -55,65 +55,72 @@ public class Player : MonoBehaviour
 
 	private void Update()
 	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+			SetPause(!_pause);
+
+		if (_pause)
+			return;
+
+		foreach (KeyValuePair<KeyCode, PlayerAction> pair in  _keysSystem.KeyPlayerActionDict)
+		{
+			if(pair.Value.type == ActionType.spell)
+				if (Input.GetKey(pair.Key))
+					Cast(pair.Value);
+			else
+			{
+
+			}
+		}
+
+		if (Input.GetMouseButton(0))
+			Cast(_keysSystem.LeftMouseAction());
+
+		if (Input.GetMouseButton(1))
+			Cast(_keysSystem.RightMouseAction());
+
+
 		//if (Input.GetKeyDown(KeyCode.E))
 		//{
 		//	_currentSpellIndex = (_currentSpellIndex + 1) % _spells.Count;
 
-		//	currentSpell = _spells[_currentSpellIndex];
-		//	switch (currentSpell.type)
-		//	{
-		//		case SpellType.projectile:
-		//			_projectileTrow.SetProjectile(currentSpell.projectile);
+			//	currentSpell = _spells[_currentSpellIndex];
+			//	switch (currentSpell.type)
+			//	{
+			//		case SpellType.projectile:
+			//			_projectileTrow.SetProjectile(currentSpell.projectile);
 
-		//			_projectileTrow.enabled = true;
-		//			_gravyGun.enabled = false;
-		//			break;
-		//		case SpellType.gravygun:
-		//			_projectileTrow.enabled = false;
-		//			_gravyGun.enabled = true;
-		//			break;
-		//		case SpellType.selfCast:
-		//			_projectileTrow.enabled = false;
-		//			_gravyGun.enabled = false;
-		//			break;
-		//	}
-		//}
+			//			_projectileTrow.enabled = true;
+			//			_gravyGun.enabled = false;
+			//			break;
+			//		case SpellType.gravygun:
+			//			_projectileTrow.enabled = false;
+			//			_gravyGun.enabled = true;
+			//			break;
+			//		case SpellType.selfCast:
+			//			_projectileTrow.enabled = false;
+			//			_gravyGun.enabled = false;
+			//			break;
+			//	}
+			//}
 
-		//if (Input.GetMouseButtonDown(0) && currentSpell.type == SpellType.selfCast)
-		//{
-		//	currentSpell.selfCastComponent.Activate(this);
-		//}
-
-		if (Input.GetKeyDown(KeyCode.Escape))
-			SetPause(!_pause);
+			//if (Input.GetMouseButtonDown(0) && currentSpell.type == SpellType.selfCast)
+			//{
+			//	currentSpell.selfCastComponent.Activate(this);
+			//}
 	}
 
-	void OnGUI()
+	private void Cast(PlayerAction playerAction)
 	{
-		if (_pause)
-			return;
-
-		Event e = Event.current;
-		if (e.isKey && e.type == EventType.KeyDown
-			&& e.keyCode != KeyCode.None
-			&& !_keysSystem.IgnoreThisKey(e.keyCode))
+		if (playerAction.type == ActionType.spell)
 		{
-			if (!_keysSystem.KeyPlayerActionDict.ContainsKey(e.keyCode))
-				return;
-
-			PlayerAction playerAction = _keysSystem.KeyPlayerActionDict[e.keyCode];
-
-			if(playerAction.type == ActionType.spell)
+			switch (playerAction.so.type)
 			{
-				switch(playerAction.so.type)
-				{
-					case SpellType.projectile:
-						_magicGun.Shoot(playerAction.so.projectile);
-						break;
-					case SpellType.selfCast:
-						_actionComponentsDict[playerAction].Activate(this, playerAction.altVariant);
-						break;
-				}
+				case SpellType.projectile:
+					_magicGun.Shoot(playerAction.so.projectile);
+					break;
+				case SpellType.selfCast:
+					_actionComponentsDict[playerAction].Activate(this, playerAction.altVariant);
+					break;
 			}
 		}
 	}

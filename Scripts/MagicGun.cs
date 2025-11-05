@@ -16,7 +16,7 @@ public class MagicGun : MonoBehaviour
 
     public void Shoot()
 	{
-        if(Time.time - _lastShootTime > _cooldown &&
+        if (Time.time - _lastShootTime > _cooldown &&
 			_mana.TakeMana(_projectile.ManaUse))
 		{
             _lastShootTime = Time.time;
