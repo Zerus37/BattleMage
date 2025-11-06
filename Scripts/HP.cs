@@ -33,4 +33,9 @@ public class HP : MonoBehaviour
 	{
 		Destroy(gameObject);
 	}
+
+	public void SelfDestroy(float timer)
+	{
+		Destroy(gameObject, timer);
+	}
 }

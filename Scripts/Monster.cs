@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
@@ -9,8 +10,23 @@ public class Monster : MonoBehaviour
 	[SerializeField] private float _attackDistance;
 	[SerializeField] private float _damage;
 	[SerializeField, HideInInspector] private NavMeshAgent _agent;
+
+	[SerializeField] private UnityEvent _onAttack;
+	
 	private float _actionTimer = 0.1f;
 	private HP _targetHP;
+	private bool _pause = false;
+
+	public bool Pause => _pause;
+	public Transform Target => _target;
+	public Animator Animator => _animator;
+	public float AttackDistance => _attackDistance;
+
+	public void SetPause(bool flag)
+	{
+		_pause = flag;
+		_agent.enabled = !flag;
+	}
 
 	public void SetTarget(Transform target)
 	{
@@ -27,7 +43,7 @@ public class Monster : MonoBehaviour
 	{
 		_attackDistance *= _attackDistance;
 
-		if(_target != null)
+		if (_target != null)
 			_targetHP = _target.GetComponent<HP>();
 	}
 
@@ -38,6 +54,9 @@ public class Monster : MonoBehaviour
 
 	private void Update()
 	{
+		if (_pause)
+			return;
+
 		_actionTimer -= Time.deltaTime;
 
 		if (_actionTimer < 0)
@@ -48,13 +67,14 @@ public class Monster : MonoBehaviour
 			{
 				_agent.SetDestination(_target.position);
 				_animator.SetBool("Attack", false);
-				_agent.isStopped = false;
 			}
 			else
 			{
 				transform.LookAt(_target);
 				_animator.SetBool("Attack", true);
-				_agent.isStopped = true;
+				if (_agent.enabled)
+					_agent.ResetPath();
+				_onAttack.Invoke();
 			}
 		}
 	}

@@ -27,6 +27,16 @@ public class Mana : MonoBehaviour
 		return true;
 	}
 
+	public void AddMana(float amount)
+	{
+		_currentMana += amount;
+
+		if (_currentMana >= _maxMana)
+			_currentMana = _maxMana;
+
+		_bar.value = _currentMana;
+	}
+
 	public void SetManaBurn(float value)
 	{
 		_burnPerSecond = value;

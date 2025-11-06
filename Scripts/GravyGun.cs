@@ -8,25 +8,66 @@ public class GravyGun : MonoBehaviour
     [SerializeField] private float _pushFore = 100;
     [SerializeField] private Transform _gravyPoint;
     [SerializeField] private Mana _mana;
+    [SerializeField] private float _manaUse = 15;
 
     private Rigidbody _grapBody = null;
     private Ragdoll _grapRagdoll = null;
+    private bool _work = false;
+
+    public void Work()
+	{
+        if (_work)
+            return;
+
+        Grap();
+        _work = true;
+    }
+
+    public void Push()
+    {
+        _work = false;
+        if (_grapBody == null)
+            return;
+
+        if (_grapRagdoll != null)
+        {
+            _grapRagdoll.Push(_gravyPoint.forward * _pushFore * 2);
+            _grapRagdoll.Freze(false);
+            _grapRagdoll = null;
+        }
+        else
+        {
+            _grapBody.AddForce(_gravyPoint.forward * _pushFore, ForceMode.VelocityChange);
+        }
+
+        _grapBody.useGravity = true;
+        _grapBody = null;
+    }
+
+    public void Drop()
+    {
+        if (_grapBody == null)
+            return;
+
+        _grapBody.useGravity = true;
+        _grapBody = null;
+
+        if (_grapRagdoll != null)
+        {
+            _grapRagdoll.Freze(false);
+            _grapRagdoll = null;
+        }
+    }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-            Grap();
-
-        if (Input.GetMouseButtonUp(0))
-            Push();
-
         if (Input.GetKeyDown(KeyCode.LeftAlt))
             Drop();
     }
 
 	private void FixedUpdate()
-	{
-        if (Input.GetMouseButton(0))
+    {
+        if (_work)
             Magnite();
     }
 
@@ -39,12 +80,18 @@ public class GravyGun : MonoBehaviour
 		{
             if (hit.collider.TryGetComponent<Rigidbody>(out Rigidbody rb))
 			{
-                if (!_mana.TakeMana(15))
+                if (!_mana.TakeMana(_manaUse))
                     return;
 
 				if (hit.collider.CompareTag("Ragdoll"))
 				{
                     _grapRagdoll = hit.collider.GetComponent<RagdollPart>().ragdoll;
+                    if (!_grapRagdoll.Ready)
+					{
+                        _mana.AddMana(_manaUse);
+                        return;
+					}
+
                     _grapBody = _grapRagdoll.Root;
                     _grapRagdoll.Freze(true);
                 }
@@ -77,40 +124,5 @@ public class GravyGun : MonoBehaviour
             return;
 
         _grapBody.transform.position = Vector3.Lerp(_grapBody.transform.position, _gravyPoint.transform.position, Time.fixedDeltaTime * 16);
-    }
-
-    private void Push()
-    {
-        if (_grapBody == null)
-            return;
-
-        if (_grapRagdoll != null)
-        {
-            _grapRagdoll.Push(_gravyPoint.forward * _pushFore * 2);
-            _grapRagdoll.Freze(false);
-            _grapRagdoll = null;
-        }
-		else
-		{
-            _grapBody.AddForce(_gravyPoint.forward * _pushFore, ForceMode.VelocityChange);
-        }
-
-        _grapBody.useGravity = true;
-        _grapBody = null;
-    }
-
-    private void Drop()
-	{
-        if (_grapBody == null)
-            return;
-
-        _grapBody.useGravity = true;
-        _grapBody = null;
-
-        if (_grapRagdoll != null)
-		{
-            _grapRagdoll.Freze(false);
-            _grapRagdoll = null;
-        }
     }
 }
