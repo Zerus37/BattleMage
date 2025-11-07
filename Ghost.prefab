@@ -4990,6 +4990,8 @@ MonoBehaviour:
   _animator: {fileID: 7003166193684192529}
   _attackDistance: 14
   _damage: 5
+  _runSpeed: 10
+  _walkSpeed: 4
   _agent: {fileID: 2889810290654040506}
   _onAttack:
     m_PersistentCalls:

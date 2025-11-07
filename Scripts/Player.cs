@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
+	private static Player instance;
+
 	[SerializeField] private MagicGun _magicGun;
 	[SerializeField] private GravyGun _gravyGun;
 	[SerializeField] private Mana _mana;
@@ -22,6 +24,8 @@ public class Player : MonoBehaviour
 	private bool _pause = false;
 	private Dictionary<PlayerAction, SelfCast> _actionComponentsDict = new Dictionary<PlayerAction, SelfCast>();
 	private float _timeScaleBeforePause = 1;
+
+	public static Transform Transform => instance.transform;
 
 	public Mana Mana => _mana;
 	public FirstPersonMovement Movement => _movement;
@@ -194,6 +198,7 @@ public class Player : MonoBehaviour
 
 	private void Start()
 	{
+		instance = this;
 		_escMenu.SetActive(false);
 	}
 }
