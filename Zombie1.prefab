@@ -1362,7 +1362,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!114 &4401202677858019699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1379,7 +1379,7 @@ MonoBehaviour:
   _animator: {fileID: 5907699675660715659}
   _attackDistance: 2
   _damage: 5
-  _runSpeed: 5
+  _runSpeed: 7.5
   _walkSpeed: 0.35
   _agent: {fileID: 7790231835865711338}
   _onAttack:
