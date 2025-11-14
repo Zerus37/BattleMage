@@ -108870,7 +108870,7 @@ MonoBehaviour:
   _gravyGun: {fileID: 4496626057788889951}
   _mana: {fileID: 8933863018264926026}
   _escMenu: {fileID: 1857778162}
-  _magicComponentContainer: {fileID: 5461879760790475527}
+  _magicComponentContainer: {fileID: 0}
   _components:
   - {fileID: 7350308163911343321}
   - {fileID: 7484826157551689761}

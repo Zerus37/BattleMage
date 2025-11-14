@@ -17,7 +17,7 @@ MonoBehaviour:
   spellName: "\u0426\u0432\u0435\u0442\u043D\u043E\u0439 \u0441\u043F\u0435\u043B\u043B"
   sprite: {fileID: 21300000, guid: 483784bfb85c0544997be41815f42eeb, type: 3}
   manaCost: 5
-  projectile: {fileID: 4497198633178632569, guid: d83a857991262d74ca6e360ba09b8e2b,
+  projectile: {fileID: 7597164355367898923, guid: d83a857991262d74ca6e360ba09b8e2b,
     type: 3}
   selfCastComponent: {fileID: 0}
   description: "\u0421\u0433\u0443\u0441\u0442\u043E\u043A \u043C\u0430\u0433\u0438\u0438

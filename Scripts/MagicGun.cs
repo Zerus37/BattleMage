@@ -23,7 +23,7 @@ public class MagicGun : MonoBehaviour
 
             Instantiate(_projectile.RB, _shootPoint.position, _shootPoint.rotation)
                 .AddForce(_shootPoint.forward * _projectile.StartSpeed, ForceMode.VelocityChange);
-        }
+		}
 	}
 
     public void Shoot(Projectile projectile)

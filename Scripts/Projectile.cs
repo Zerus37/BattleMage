@@ -2,24 +2,24 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-	[SerializeField] private DamageType _type;
-	[SerializeField] private float _lifetime;
-	[SerializeField] private float _manaUse;
-	[SerializeField] private float _damage;
-	[SerializeField] private float _startSpeed;
-	[SerializeField] private bool _collisionLimitOn = true;
-	[SerializeField] private int _collisionLimit = 3;
-	[SerializeField] private bool _turnOffEffect;
+	[SerializeField] protected DamageType _type;
+	[SerializeField] protected float _lifetime;
+	[SerializeField] protected float _manaUse;
+	[SerializeField] protected float _damage;
+	[SerializeField] protected float _startSpeed;
+	[SerializeField] protected bool _collisionLimitOn = true;
+	[SerializeField] protected int _collisionLimit = 3;
+	[SerializeField] protected bool _turnOffEffect;
 
-	[SerializeField, HideInInspector] private Rigidbody _rb;
-	[SerializeField, HideInInspector] private SphereCollider _collider;
-	[SerializeField, HideInInspector] private ParticleSystem _mainParticle;
-	[SerializeField, HideInInspector] private ParticleSystem _hitParticle;
+	[SerializeField, HideInInspector] protected Rigidbody _rb;
+	[SerializeField, HideInInspector] protected SphereCollider _collider;
+	[SerializeField, HideInInspector] protected ParticleSystem _mainParticle;
+	[SerializeField, HideInInspector] protected ParticleSystem _hitParticle;
 	public float ManaUse => _manaUse;
 	public float StartSpeed => _startSpeed;
 	public Rigidbody RB => _rb;
 
-	private void OnCollisionEnter(Collision collision)
+	protected virtual void OnCollisionEnter(Collision collision)
 	{
 		_hitParticle.Play();
 
@@ -41,7 +41,7 @@ public class Projectile : MonoBehaviour
 
 
 
-	public void TurnOff()
+	public virtual void TurnOff()
 	{
 		CancelInvoke();
 		Destroy(_rb);
@@ -54,7 +54,7 @@ public class Projectile : MonoBehaviour
 		Destroy(gameObject, 4);
 	}
 
-	private void OnValidate()
+	protected void OnValidate()
 	{
 		_rb = GetComponent<Rigidbody>();
 		_collider = GetComponent<SphereCollider>();
@@ -82,12 +82,12 @@ public class Projectile : MonoBehaviour
 		_hitParticle = p.GetComponent<ParticleSystem>();
 	}
 
-	private void Start()
+	protected virtual void Start()
 	{
 		Invoke(nameof(TurnOff), _lifetime);
 	}
 
-	private void OnDisable()
+	protected void OnDisable()
 	{
 		CancelInvoke();
 	}
