@@ -1,28 +1,22 @@
 using UnityEngine;
 
-public class ComfortLandindAura : SelfCast
+public class ComfortLandindAura : Aura
 {
-	[SerializeField] private Rigidbody _playerRb;
+	[SerializeField] private GameObject _effect;
 
-	private bool _on = false;
-	private Player _player;
-
-	public override void Activate(Player player, int altVariant = 0)
+	private void Start()
 	{
-		base.Activate(player, altVariant);
-
-		_on = !_on;
-		_player = player;
+		_onActivate.AddListener(() => _effect.SetActive(true));
+		_onDeActivate.AddListener(() => _effect.SetActive(false));
 	}
 
-	private void FixedUpdate()
+	protected override void FixedUpdate()
 	{
-		if (!_on) return;
-		if (!_player.Mana.TakeMana(_manaUse * Time.fixedDeltaTime)) return;
+		base.FixedUpdate();
 
-		Vector3 velocity = _playerRb.velocity;
+		Vector3 velocity = _player.Rigidbody.velocity;
 		velocity.y = Mathf.Clamp(velocity.y , -15, 100f);
 
-		_playerRb.velocity = velocity;
+		_player.Rigidbody.velocity = velocity;
 	}
 }

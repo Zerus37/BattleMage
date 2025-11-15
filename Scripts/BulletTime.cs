@@ -33,7 +33,7 @@ public class BulletTime : SelfCast
 		float t = 0;
 		while(t < _slowTime)
 		{
-			if (!player.Pause)
+			if (!_player.Pause)
 				t += Time.unscaledDeltaTime;
 
 			yield return null;

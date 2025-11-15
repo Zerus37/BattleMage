@@ -9727,7 +9727,7 @@ GameObject:
   - component: {fileID: 859865092056022005}
   - component: {fileID: 5681902351030161253}
   m_Layer: 2
-  m_Name: RicoshetArrowChild
+  m_Name: SplitArrowChild
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -68,6 +68,17 @@ public class Player : MonoBehaviour
 		foreach (KeyValuePair<KeyCode, PlayerAction> pair in  _keysSystem.KeyPlayerActionDict)
 		{
 			if(pair.Value.type == ActionType.spell)
+				if (Input.GetKeyDown(pair.Key))
+					CastStart(pair.Value);
+			else
+			{
+
+			}
+		}
+
+		foreach (KeyValuePair<KeyCode, PlayerAction> pair in  _keysSystem.KeyPlayerActionDict)
+		{
+			if(pair.Value.type == ActionType.spell)
 				if (Input.GetKey(pair.Key))
 					Cast(pair.Value);
 			else
@@ -131,6 +142,25 @@ public class Player : MonoBehaviour
 		//}
 	}
 
+	private void CastStart(PlayerAction playerAction)
+	{
+		if (playerAction.type == ActionType.spell)
+		{
+			switch (playerAction.so.type)
+			{
+				case SpellType.projectile:
+					//_magicGun.Shoot(playerAction.so.projectile);
+					break;
+				case SpellType.selfCast:
+					_actionComponentsDict[playerAction].Activate(this, playerAction.altVariant);
+					break;
+				case SpellType.gravygun:
+					//_gravyGun.Work();
+					break;
+			}
+		}
+	}
+
 	private void Cast(PlayerAction playerAction)
 	{
 		if (playerAction.type == ActionType.spell)
@@ -141,7 +171,7 @@ public class Player : MonoBehaviour
 					_magicGun.Shoot(playerAction.so.projectile);
 					break;
 				case SpellType.selfCast:
-					_actionComponentsDict[playerAction].Activate(this, playerAction.altVariant);
+					//_actionComponentsDict[playerAction].Activate(this, playerAction.altVariant);
 					break;
 				case SpellType.gravygun:
 					_gravyGun.Work();

@@ -8,7 +8,7 @@ public class SelfCast : MonoBehaviour
 	[SerializeField] protected string[] _altVariantsAffixes;
 	public float ManaNeed => _manaUse;
 	public int AltVariantCounts => _altVariantsAffixes.Length;
-	protected Player player;
+	protected Player _player;
 
 	public string GetAffix(int index)
 	{
@@ -28,7 +28,7 @@ public class SelfCast : MonoBehaviour
 
 	public virtual void SetPlayer(Player player)
 	{
-		this.player = player;
+		this._player = player;
 	}
 
 	public virtual void SetManaUse(float value)

@@ -1,1 +1,1 @@
-Spells в папке Resourses не двигать. Используется в коде, захардкожено в SpellsUI
+Spells в папке Resourses не двигать. Используется в коде, захардкожено в KeyBindingSystem

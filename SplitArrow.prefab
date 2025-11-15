@@ -14555,7 +14555,7 @@ GameObject:
   - component: {fileID: 859865092056022005}
   - component: {fileID: 5681902351030161253}
   m_Layer: 2
-  m_Name: RicoshetArrow
+  m_Name: SplitArrow
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14617,7 +14617,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9100163737737005714}
-  m_Material: {fileID: 13400000, guid: bc09e416fd6d115479d1f67b98b52cd8, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
